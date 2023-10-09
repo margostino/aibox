@@ -163,5 +163,7 @@ cython_debug/
 .idea/
 *.iml
 .DS_Store
+notebooks/.env
 
 .chroma/
+./scripts/.temp
