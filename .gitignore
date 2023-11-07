@@ -166,4 +166,4 @@ cython_debug/
 notebooks/.env
 
 .chroma/
-./scripts/.temp
+labs/.temp
