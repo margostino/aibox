@@ -167,3 +167,7 @@ notebooks/.env
 
 .chroma/
 labs/.temp
+
+./labs/semantic-reviewer/config.toml
+./labs/semantic-reviewer/.env
+*.toml
