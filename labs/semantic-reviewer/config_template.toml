@@ -1,0 +1,26 @@
+[openai]
+model = "gpt-4 | gpt-3.5 | {OTHER}" # https://platform.openai.com/docs/models/overview
+temperature = 0
+
+[agent]
+type = "structured-chat-zero-shot-react-description"
+max_execution_time = 1000
+verbose = true
+
+[git]
+crypt_key_path = "{PATH_TO_YOUR_GIT_CRYPT_KEY}" # needed if some part of the repo is encrypted
+
+[llm]
+prompt = "{INPUT_PROMPT}"
+
+[[repositories]]
+project = "{YOUR_PROJECT_OR_USERNAME}"
+name = "{YOUR_REOP_NAME}"
+ssh_endpoint = "ssh://git@{YOUR_GIT_VENDOR}/my-repo.git"
+http_endpoint = "{YOUR_GIT_VENDOR_ENDPOINT}"
+prefix_file = "{FILE_PREFIX_FOR_FILTERING}"
+local_cache_path = "{YOU_LOCAL_CACHE_PATH}"
+objective = "{SEMANTIC_REVIEW_OBJETIVE}"
+rules = "{SEMANTIC_RULES}"
+context = "{REO_CONTEXT}"
+schema = "{CONFIG_FILE_SCHEMA}" # yaml/json/etc.
