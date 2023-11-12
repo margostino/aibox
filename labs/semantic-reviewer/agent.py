@@ -20,15 +20,15 @@ class Agent(BaseModel):
         model, temperature = config.get_openai()
         self.tools = [pull_requests_fetcher_tool, semantic_reviewer_tool]
         self.llm = ChatOpenAI(model=model, temperature=temperature)
-        self._initialize_agent()
+        self._initialize_agent(config.get_agent())
 
-    def _initialize_agent(self):
+    def _initialize_agent(self, config: dict):
         self.agent = initialize_agent(
             tools=self.tools,
-            agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION,
+            agent=AgentType(config.get('type')),
             llm=self.llm,
-            verbose=True,
-            max_execution_time=1000,
+            verbose=config.get('verbose'),
+            max_execution_time=config.get('max_execution_time'),
             # early_stopping_method="generate",
             handle_parsing_errors=_handle_error,
         )

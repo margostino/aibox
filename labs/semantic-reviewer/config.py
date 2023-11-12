@@ -14,6 +14,9 @@ class Config:
         temperature = self._get_config_value('openai', 'temperature')
         return model, temperature
 
+    def get_agent(self) -> dict:
+        return self.config['agent']
+
     def get_prompt(self) -> str:
         return self.config['llm']['prompt']
 
