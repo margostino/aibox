@@ -1,6 +1,5 @@
 import json
 import re
-from json import JSONDecodeError
 
 
 def _handle_error(error) -> str:
@@ -11,14 +10,21 @@ def is_yaml_file(file_path: str, prefix: str) -> bool:
     return file_path.startswith(prefix) and (file_path.endswith('.yml') or file_path.endswith('.yaml'))
 
 
-def normalize_review(review: str):
+def normalize_review(review: str) -> dict:
     if len(review) == 0:
         return {}
     # TODO: validate
-    sanitized_review = review.replace("```json", "```").split("```", 2)[1].strip()
     try:
+        review_parts = review.replace("```json", "```").split("```")
+        if len(review_parts) == 3:
+            sanitized_review = review_parts[1].strip()
+        elif len(review_parts) == 1:
+            sanitized_review = review_parts[0].strip()
+        else:
+            sanitized_review = "{\"error\": \"unable to parse review\"}"
+
         return json.loads(sanitized_review)
-    except JSONDecodeError:
+    except:
         error = f"unable to parse review: {review}"
         return {"error": error}
 

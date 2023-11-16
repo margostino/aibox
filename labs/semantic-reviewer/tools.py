@@ -14,7 +14,6 @@ from config import Config
 from utils import sanitize_show_by_files, normalize_review
 
 config = Config()
-local_cache_path = config.get_cache_path()
 model, temperature = config.get_openai()
 repositories = config.get_all_repository_names()
 contexts = config.get_contexts()
@@ -95,11 +94,19 @@ reviewer_chain = LLMChain(
 
 def fetch_branches_for_open_pull_requests(repository_name: str) -> list:
     repository = config.get_repository(repository_name)
+
+    if not repository['enabled']:
+        return []
+
     username = os.getenv("REPO_USERNAME")
     password = os.getenv("REPO_PASSWORD")
     local_repo_cache_path = f"{config.get_cache_path()}/{repository_name}"
 
     Repo.clone_from(repository['ssh_endpoint'], to_path=local_repo_cache_path)
+
+    if len(repository['branches']) > 0:
+        return repository['branches']
+
     stash = stashy.connect(repository['http_endpoint'], username, password)
     repo: Repository = stash.projects[repository['project']].repos[repository_name]
 
@@ -109,8 +116,6 @@ def fetch_branches_for_open_pull_requests(repository_name: str) -> list:
         from_branch = pr['fromRef']['displayId']
         if state == 'OPEN':
             branches.append(from_branch)
-        else:
-            print()
 
     return branches
 

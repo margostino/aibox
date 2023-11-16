@@ -31,6 +31,9 @@ class Config:
     def get_cache_path(self):
         return self._get_config_value("cache", "path")
 
+    def get_cache_paths(self):
+        return [repository['local_cache_path'] for repository in self.config['repositories']]
+
     def get_all_repository_names(self):
         return [repository['name'] for repository in self.config['repositories']]
 
