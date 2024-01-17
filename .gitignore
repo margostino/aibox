@@ -175,5 +175,6 @@ labs/.temp
 ./data
 
 # Neo4j
+.neo4j
 .neo4j/
-.neo4j/
+.neo4j/*
