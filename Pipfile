@@ -9,6 +9,9 @@ openai = "*"
 jq = "*"
 pyarrow = "*"
 chromadb = "*"
+pandas = "*"
+neo4j = "*"
+langchain-openai = "*"
 
 [dev-packages]
 

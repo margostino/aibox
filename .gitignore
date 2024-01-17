@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+./labs/.env
 
 # Spyder project settings
 .spyderproject
@@ -171,3 +172,8 @@ labs/.temp
 ./labs/semantic-reviewer/config.toml
 ./labs/semantic-reviewer/.env
 *.toml
+./data
+
+# Neo4j
+.neo4j/
+.neo4j/
