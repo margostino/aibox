@@ -12,6 +12,12 @@ chromadb = "*"
 pandas = "*"
 neo4j = "*"
 langchain-openai = "*"
+streamlit = "*"
+tabulate = "*"
+matplotlib = "*"
+langchain-experimental = "*"
+langchain-community = "*"
+llama-index = "*"
 
 [dev-packages]
 
