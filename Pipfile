@@ -18,6 +18,11 @@ matplotlib = "*"
 langchain-experimental = "*"
 langchain-community = "*"
 llama-index = "*"
+wikipedia = "*"
+numexpr = "*"
+langchainhub = "*"
+gql = "*"
+requests_toolbelt = "*"
 
 [dev-packages]
 
