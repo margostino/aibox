@@ -171,7 +171,6 @@ labs/.temp
 ./labs/semantic-reviewer/.temp
 ./labs/semantic-reviewer/config.toml
 ./labs/semantic-reviewer/.env
-*.toml
 ./data
 
 # Neo4j
