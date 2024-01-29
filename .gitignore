@@ -177,3 +177,6 @@ labs/.temp
 .neo4j
 .neo4j/
 .neo4j/*
+
+cache/
+exports/

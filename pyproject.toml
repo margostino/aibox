@@ -12,7 +12,7 @@ openai = "^1.10.0"
 jq = "^1.6.0"
 pyarrow = "^15.0.0"
 chromadb = "^0.4.22"
-pandas = "^2.2.0"
+pandas = "^1.5.3"
 neo4j = "^5.16.0"
 langchain-openai = "^0.0.5"
 streamlit = "^1.30.0"
@@ -26,7 +26,8 @@ numexpr = "^2.9.0"
 langchainhub = "^0.1.14"
 gql = "^3.5.0"
 requests-toolbelt = "^1.0.0"
-elevenlabs = "^0.2.27"
+#elevenlabs = "^0.2.27" ==> conflict with pandasai
+pandasai = "^1.5.18"
 
 [build-system]
 requires = ["poetry-core"]
