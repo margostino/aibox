@@ -39,7 +39,7 @@ Every element in "fixtures" object is a match. The field "teamAName" is the name
 The field "teamAScore" is the number of goals scored by the team playing "away" while the field "teamHScore" is the number of goals scored by the team playing "home". 
 The field "kickoffTime" is the time when the match started.
 
-Example:
+EXAMPLE:
 ```
 Match 1:
 Man City: 3

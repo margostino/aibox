@@ -19,7 +19,7 @@ agent = create_openai_functions_agent(llm, tools, prompt)
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True, max_iterations=50, max_execution_time=120)
 
 query = """
-INSTRUCTION: Which team scored the most goals in a single match? 
+INSTRUCTION: Which team scored the most goals in a single match?
 You only need to consider the first 5 Gameweeks and return by Gameweek: the team name, the number of goals scored and the fixture id.
 In case there are more than 1 team with most goals, take into account the goal difference (i.e. goals scored - goals conceded).
 This is for example Team A scored 3 goals and conceded 1 goal, so the goal difference is 2.
