@@ -9,14 +9,18 @@ load_dotenv()
 
 OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 # llm = OpenAI(openai_api_key=OPENAI_API_KEY, model_name="gpt-4")
-#llm = OpenAI(openai_api_key=OPENAI_API_KEY, model_name="gpt-4-1106-preview")
+# llm = OpenAI(openai_api_key=OPENAI_API_KEY, model_name="gpt-4-1106-preview")
 llm = OpenAI(openai_api_key=OPENAI_API_KEY, model_name="gpt-3.5-turbo-instruct")
 
-tools = load_tools(["graphql"],
-                    graphql_endpoint="https://anfield-api-margostino.vercel.app/api/query",
-                    llm=llm)
+tools = load_tools(
+    ["graphql"],
+    graphql_endpoint="https://anfield-api-margostino.vercel.app/api/query",
+    llm=llm,
+)
 # prompt = hub.pull("hwchase17/openai-functions-agent")
-prompt = hub.pull("hwchase17/react") # https://smith.langchain.com/hub/hwchase17/react?organizationId=8b40aa1a-1517-5571-a6d2-c117a8e9c4dd
+prompt = hub.pull(
+    "hwchase17/react"
+)  # https://smith.langchain.com/hub/hwchase17/react?organizationId=8b40aa1a-1517-5571-a6d2-c117a8e9c4dd
 agent = create_react_agent(llm, tools, prompt=prompt)
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
@@ -64,4 +68,3 @@ print(output_1)
 
 # output_2 = agent_executor.invoke({"input": "when you add 4  and 5 the result comes 10."})
 # print(output_2)
-

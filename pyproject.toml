@@ -28,6 +28,8 @@ gql = "^3.5.0"
 requests-toolbelt = "^1.0.0"
 #elevenlabs = "^0.2.27" ==> conflict with pandasai
 pandasai = "^1.5.18"
+watchdog = "^3.0.0"
+pydantic = "1.10.14"
 
 [build-system]
 requires = ["poetry-core"]
