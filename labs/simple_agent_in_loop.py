@@ -1,12 +1,14 @@
+import operator
 import os
 import random
+from typing import Annotated, Sequence, TypedDict
 
 from dotenv import load_dotenv
 from langchain.agents import AgentExecutor, create_openai_tools_agent
-from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain.tools import tool
-from langchain_openai import ChatOpenAI, OpenAI
+from langchain_core.messages import BaseMessage
+from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
@@ -26,6 +28,10 @@ PROMPT_TEMPLATE = """
         PLACEHOLDER
         {agent_scratchpad}
     """
+
+
+class AgentState(TypedDict):
+    messages: Annotated[Sequence[BaseMessage], operator.add]
 
 
 class DoeAgent:
